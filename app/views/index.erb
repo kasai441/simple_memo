@@ -1,0 +1,6 @@
+<h1>メモアプリ</h1>
+<ul>
+<% @memo.each_value do |v| %>
+  <li><%= v["memo_title"] %></li>
+<% end %>
+</ul>
