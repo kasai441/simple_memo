@@ -1,0 +1,7 @@
+<h2>編集</h2>
+<form method="post" action="/edit/<%= @id %>">
+  <input hidden name="id" value="<%= @id %>">
+  <input type="text" name="memo_title" value="<%= @memo_title %>">
+  <input type="textarea" name="memo_content" value="<%= @memo_content %>">
+  <input type="submit" value="保存">
+</form>

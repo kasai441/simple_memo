@@ -1,6 +1,6 @@
 <h1>メモアプリ</h1>
 <ul>
-<% @memo.each_value do |v| %>
-  <li><%= v["memo_title"] %></li>
+<% @memo.each do |k, v| %>
+  <li name="<%= k %>"><a href="/edit/<%= k %>"><%= v["memo_title"] %></a></li>
 <% end %>
 </ul>
