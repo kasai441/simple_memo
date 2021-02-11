@@ -2,9 +2,24 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>simple memo</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>シンプルメモ</title>
 </head>
 <body>
+<div class="container">
+  <header class="header">
+    <h1 class="header__title">シンプルメモ</h1>
+  </header>
+  <nav class="menu-bars">
+    <ol class="menu-bars__items">
+      <li class="menu-bars__item"><a href="/" class="menu-bars__link">Home</a></li>
+    </ol>
+  </nav>
+  <div class="body">
+    <main class="main">
   <%= yield %>
+    </main>
+  </div>
+</div>
 </body>
 </html>
