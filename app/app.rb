@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+enable :method_override
 SAVE_FILE = './memo.json'
 get '/' do
   @memo = read_file(SAVE_FILE)
@@ -25,7 +26,7 @@ get '/edit/:id' do
   erb :edit
 end
 
-post '/edit/:id' do
+patch '/edit/:id' do
   file_hash = read_file(SAVE_FILE) 
   id = params[:id]
   write_file(SAVE_FILE, file_hash, id)
