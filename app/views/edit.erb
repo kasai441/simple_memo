@@ -1,8 +1,8 @@
 <h2>編集</h2>
-<form method="post" action="/edit/<%= @id %>">
+<form method="post" action="/edit/<%= @memo.id %>">
   <input hidden name="_method" value="PATCH">
-  <input hidden name="id" value="<%= @id %>">
-  <input type="text" name="title" value="<%= @title %>">
-  <input type="textarea" name="content" value="<%= @content %>">
+  <input hidden name="id" value="<%= @memo.id %>">
+  <input type="text" name="title" value="<%= @memo.title %>">
+  <input type="textarea" name="content" value="<%= @memo.content %>">
   <input type="submit" value="保存">
 </form>

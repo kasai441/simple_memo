@@ -6,8 +6,17 @@ require_relative './models/memo'
 enable :method_override
 
 get '/' do
-  @memo = Memo.all
+  @memos = Memo.new.all
   erb :index
+end
+
+get '/show/:id' do
+  @memo = Memo.new.find(params[:id])
+  if @memo
+    erb :show
+  else
+    'errors/404'
+  end
 end
 
 get '/new' do
@@ -15,17 +24,20 @@ get '/new' do
 end
 
 post '/new' do
-  Memo.new(params)
+  Memo.new.add(params)
+  redirect '/'
 end
 
 get '/edit/:id' do
-  file_hash = Memo.all
-  @id = params[:id]
-  @title = file_hash[params[:id]]['title']
-  @content = file_hash[params[:id]]['content']
-  erb :edit
+  @memo = Memo.new.find(params[:id])
+  if @memo
+    erb :edit
+  else
+    'errors/404'
+  end
 end
 
 patch '/edit/:id' do
-  Memo.update(params)
+  Memo.new.update(params)
+  redirect "/show/#{params['id']}"
 end
