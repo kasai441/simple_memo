@@ -41,3 +41,8 @@ patch '/edit/:id' do
   Memo.new.update(params)
   redirect "/show/#{params['id']}"
 end
+
+delete '/delete/:id' do
+  Memo.new.destroy(params[:id])
+  redirect "/"
+end

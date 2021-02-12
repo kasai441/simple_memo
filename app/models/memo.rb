@@ -24,11 +24,17 @@ class Memo
 
   def add(params)
     id = Time.now.strftime('%Y%m%d%H%M%S%L')
-    write_file(id, params)
+    write_id_params(id, params)
   end
 
   def update(params)
-    write_file(params[:id], params)
+    write_id_params(params[:id], params)
+  end
+
+  def destroy(id)
+    file_hash = read_file
+    file_hash.delete(id)
+    write_file(file_hash)
   end
 
   private
@@ -43,11 +49,16 @@ class Memo
     file_hash ||= {}
   end
   
-  def write_file(id, params)
+  def write_id_params(id, params)
     file_hash = read_file
+    file_hash[id] = { title: params[:title], content: params[:content] }
+    write_file(file_hash)
+  end
+  
+  def write_file(file_hash)
     File.open(SAVE_FILE, 'w') do |f|
-      file_hash[id] = { title: params[:title], content: params[:content] }
       str = JSON.dump(file_hash, f)
     end
   end
+    
 end
