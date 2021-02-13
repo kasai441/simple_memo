@@ -203,8 +203,8 @@ body {
 
 .menu-bar {
   background-color: var(--bar_color);
-  font-size: 15px;
-  padding: 1em;
+  font-size: 18px;
+  padding: 0.5em;
   width: 100%;
 }
 
@@ -245,7 +245,7 @@ body {
 .memos__item {
   border-radius: 0.3em;
   background-color: var(--bg_color);
-  font-size: 1.5em;
+  font-size: 1.3em;
   width: 100%;
   margin-bottom: 5px;
 }
@@ -253,7 +253,7 @@ body {
 .memos__link {
   display: inline-block;
   width: 100%;
-  padding: var(--base_padding_size);
+  padding: calc(var(--base_padding_size) * 2);
   color: var(--font_color);
   text-decoration: none;
 }
@@ -283,19 +283,58 @@ body {
 
 .show__content {
   min-height: 200px;
+  white-space: pre-wrap;
 }
 
-.show__link {
-  background-color: var(--bg_color);
+.show__actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.show__actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em 5em;
+}
+
+.show__edit,
+.show__delete {
+  font-size: 0.9em;
+  width: 300px;
   border-radius: 0.3em;
   text-align: center;
   color: var(--font_color);
   text-decoration: none;
+  margin: 0.5em;
 }
 
-.show__link:hover {
-  background-color: var(--select_color);
+.show__edit {
+  padding: 1em;
   border-radius: 0.3em;
+  border: 1px solid var(--select_color);
+  text-align: center;
+  background-color: var(--select_color);
+  color: var(--font_color);
+  text-decoration: none;
+}
+
+.show__delete {
+  padding: 0.8em;
+  border: 1px solid #ddd;
+}
+
+.show__edit:hover {
+  background-color: #7d7;
+  color: #fff;
+  border-radius: 0.3em;
+}
+
+.show__delete:hover {
+  background-color: #666;
+  color: #fff;
 }
 
 .edit-form__items {
@@ -356,18 +395,21 @@ body {
 
 .edit-form__cancel {
   background-color: transparent;
-  border: 1px solid var(--select_color);
+  border: 1px solid #ddd;
   padding: 1em;
 }
 
 .edit-form__submit {
+  background-color: var(--select_color);
+  border: 1px solid var(--bg_color);
   padding: 0.8em;
 }
 
 .edit-form__cancel:hover {
-  background-color: var(--bg_color);
+  background-color: #ddd;
 }
 
 .edit-form__submit:hover {
-  background-color: var(--select_color);
+  background-color: var(--bar_color);
+  color: #fff;
 }
