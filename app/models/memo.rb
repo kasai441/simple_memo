@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 class Memo
-  SAVE_FILE = './memo.json'
-  
+  FILE_NAME = 'memo.json'
+  SAVE_FILE = "#{File.dirname(__FILE__)}/../public/data/#{FILE_NAME}"
+
   attr_accessor :id, :title, :content
-  
+
   def initialize(id = '', title = '', content = '')
     @id = id
     @title = title
     @content = content
   end
-  
+
   def all
     memos = []
     read_file.each do |id, memo|
@@ -16,7 +19,7 @@ class Memo
     end
     memos
   end
-  
+
   def find(id)
     file_hash = read_file
     Memo.new(id, file_hash[id]['title'], file_hash[id]['content']) if file_hash[id]
@@ -38,27 +41,26 @@ class Memo
   end
 
   private
- 
+
   def read_file
     file_hash = {}
     if File.exist?(SAVE_FILE)
       File.open(SAVE_FILE, 'r') do |f|
-        file_hash = JSON.load(f)
+        file_hash = JSON.parse(f.read)
       end
     end
     file_hash ||= {}
   end
-  
+
   def write_id_params(id, params)
     file_hash = read_file
     file_hash[id] = { title: params[:title], content: params[:content] }
     write_file(file_hash)
   end
-  
+
   def write_file(file_hash)
     File.open(SAVE_FILE, 'w') do |f|
-      str = JSON.dump(file_hash, f)
+      JSON.dump(file_hash, f)
     end
   end
-    
 end

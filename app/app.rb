@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/reloader'
 
@@ -44,5 +46,5 @@ end
 
 delete '/delete/:id' do
   Memo.new.destroy(params[:id])
-  redirect "/"
+  redirect '/'
 end

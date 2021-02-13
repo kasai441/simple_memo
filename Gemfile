@@ -11,3 +11,7 @@ gem "sinatra", "~> 2.1"
 gem "webrick", "~> 1.7"
 
 gem "sinatra-contrib", "~> 2.1"
+
+group :development do 
+  gem 'rubocop-fjord', require: false 
+end

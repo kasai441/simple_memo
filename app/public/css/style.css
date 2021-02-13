@@ -174,7 +174,7 @@ body {
   min-width: 200px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #;
+  background-color: #fffeff;
   box-shadow: rgba(0, 0, 0, .4) 0 0 0px;
   /* floatを使った場合の対策 */
   overflow: hidden; 
@@ -253,7 +253,7 @@ body {
 .memos__link {
   display: inline-block;
   width: 100%;
-  padding: calc(var(--base_padding_size) * 2);
+  padding: 32px;
   color: var(--font_color);
   text-decoration: none;
 }
