@@ -1,24 +1,22 @@
-# README
+# Sinatraでつくったメモアプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+フィヨルドブートキャンプのWebアプリプラクティスの提出用です。
+# Ruby Version
 
-Things you may want to cover:
+Rubyのバージョンは3.0.0です
 
-* Ruby version
+# 実行方法
 
-* System dependencies
+1. 作業PCの任意の作業ディレクトリにて git clone してください。
+2. bundle install --path vendor/bundle にてGemfileをプロジェクトに反映させてください。
+3. bundle exec ruby app/app.rbで実行してください。
 
-* Configuration
+# 機能
 
-* Database creation
+1. 新規作成でタイトルとメモ内容を記入すると新しいメモができます。
+2. 作られたメモがホーム画面で一覧表示されます。
+3. メモを選択すると内容が確認できます。
+4. 内容確認画面で編集ボタンを押すと編集できます。
+5. 内容確認画面で削除ボタンを押すと削除できます。
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+メモの保存場所はapp/public/data/memo.jsonです。
