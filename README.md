@@ -8,7 +8,15 @@ Rubyのバージョンは3.0.0です
 # 実行方法
 
 1. 作業PCの任意の作業ディレクトリにて git clone してください。
-2. bundle install --path vendor/bundle にてGemfileをプロジェクトに反映させてください。
+2. devブランチにチェックアウトしてください。
+```
+cd simple_memo
+git checkout dev 
+```
+2. bundle install にてGemfileをプロジェクトに反映させてください。
+```
+bundle install --path vendor/bundle
+```
 3. bundle exec ruby app/app.rbで実行してください。
 
 # 機能
