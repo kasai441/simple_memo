@@ -14,7 +14,7 @@ get '/' do
 end
 
 get '/show/:id' do
-  @memo = Memo.new.find(escape_params(params)[:id])
+  @memo = Memo.new.find(params[:id])
   if @memo
     erb :show
   else
@@ -32,7 +32,7 @@ post '/new' do
 end
 
 get '/edit/:id' do
-  @memo = Memo.new.find(escape_params(params)[:id])
+  @memo = Memo.new.find(params[:id])
   if @memo
     erb :edit
   else
@@ -42,11 +42,11 @@ end
 
 patch '/edit/:id' do
   Memo.new.update(escape_params(params))
-  redirect "/show/#{escape_params(params)[:id]}"
+  redirect "/show/#{params[:id]}"
 end
 
 delete '/delete/:id' do
-  Memo.new.destroy(escape_params(params)[:id])
+  Memo.new.destroy(params[:id])
   redirect '/'
 end
 
