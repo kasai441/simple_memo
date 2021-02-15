@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 require_relative './models/memo'
+require_relative './helpers/helpers'
 
 enable :method_override
 
@@ -13,7 +14,7 @@ get '/' do
 end
 
 get '/show/:id' do
-  @memo = Memo.new.find(params[:id])
+  @memo = Memo.new.find(escape_params(params)[:id])
   if @memo
     erb :show
   else
@@ -26,12 +27,12 @@ get '/new' do
 end
 
 post '/new' do
-  Memo.new.add(params)
+  Memo.new.add(escape_params(params))
   redirect '/'
 end
 
 get '/edit/:id' do
-  @memo = Memo.new.find(params[:id])
+  @memo = Memo.new.find(escape_params(params)[:id])
   if @memo
     erb :edit
   else
@@ -40,11 +41,18 @@ get '/edit/:id' do
 end
 
 patch '/edit/:id' do
-  Memo.new.update(params)
-  redirect "/show/#{params['id']}"
+  Memo.new.update(escape_params(params))
+  redirect "/show/#{escape_params(params)[:id]}"
 end
 
 delete '/delete/:id' do
-  Memo.new.destroy(params[:id])
+  Memo.new.destroy(escape_params(params)[:id])
   redirect '/'
+end
+
+private
+
+def escape_params(params)
+  [:title, :content].each { |e| params[e] = h(params[e]) }
+  params
 end
