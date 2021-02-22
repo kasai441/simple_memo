@@ -24,7 +24,7 @@ class Memo
     end
   
     def add(params)
-      id = Time.now.strftime('%Y%m%d%H%M%S%L')
+      id = Time.now.to_i.to_s
       SQL.new.insert(id, params)
     end
   
