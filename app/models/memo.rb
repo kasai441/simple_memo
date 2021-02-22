@@ -20,9 +20,9 @@ class Memo
     end
 
     def find(id)
-      if (data = read_file[id])
-        Memo.new(id, data['title'], data['content'])
-      end
+      return unless (data = read_file[id])
+
+      Memo.new(id, data['title'], data['content'])
     end
 
     def add(params)

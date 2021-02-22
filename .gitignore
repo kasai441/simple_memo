@@ -1,9 +1,2 @@
 # 保存ファイル
-memo.json
-
-# vimのバックアップファイル
-.*
-*~
-
-# gem用フォルダ
-/vendor/
+/app/public/data/memo.json
