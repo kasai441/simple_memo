@@ -1,17 +1,12 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem "sinatra", "~> 2.1"
-
-gem "webrick", "~> 1.7"
-
-gem "sinatra-contrib", "~> 2.1"
-
+gem 'sinatra', '~> 2.1'
+gem 'webrick', '~> 1.7'
+gem 'sinatra-contrib', '~> 2.1'
 gem "pg"
-
-group :development do 
-  gem 'rubocop-fjord', require: false 
-end
+gem 'rubocop', require: false
+gem 'rubocop-fjord', require: false 
