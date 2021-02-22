@@ -1,6 +1,6 @@
 <form class="edit-form__items" method="post" action="/edit/<%= @memo.id %>">
-    <input hidden name="_method" value="PATCH">
-    <input hidden name="id" value="<%= @memo.id %>">
+  <input hidden name="_method" value="PATCH">
+  <input hidden name="id" value="<%= @memo.id %>">
   <div class="edit-form__item">
     <label class="edit-form__label">題名</label>
     <input class="edit-form__title" type="text" name="title" value="<%= @memo.title %>">

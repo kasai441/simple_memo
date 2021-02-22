@@ -14,11 +14,9 @@ class Memo
 
   class << self
     def all
-      memos = []
-      read_file.each do |id, memo|
-        memos << Memo.new(id, memo['title'], memo['content'])
+      read_file.map do |id, memo|
+        Memo.new(id, memo['title'], memo['content'])
       end
-      memos
     end
 
     def find(id)
@@ -28,7 +26,7 @@ class Memo
     end
 
     def add(params)
-      id = Time.now.strftime('%Y%m%d%H%M%S%L')
+      id = Time.now.to_i.to_s
       write_id_params(id, params)
     end
 
@@ -45,13 +43,13 @@ class Memo
     private
 
     def read_file
-      file_hash = {}
       if File.exist?(SAVE_FILE)
         File.open(SAVE_FILE, 'r') do |f|
-          file_hash = JSON.parse(f.read)
+          JSON.parse(f.read)
         end
+      else
+        {}
       end
-      file_hash ||= {}
     end
 
     def write_id_params(id, params)
