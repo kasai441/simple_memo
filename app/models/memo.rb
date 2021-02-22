@@ -11,29 +11,29 @@ class Memo
     @content = content
   end
 
-  def all
-    memos = []
-    SQL.new.select_all.each do |memo|
-      memos << Memo.new(memo['id'], memo['title'], memo['content'])
+  class << self
+    def all
+      SQL.new.select_all.map do |memo|
+        Memo.new(memo['id'], memo['title'], memo['content'])
+      end
     end
-    memos
-  end
-
-  def find(id)
-    memo = SQL.new.select(id)[0]
-    Memo.new(memo['id'], memo['title'], memo['content'])
-  end
-
-  def add(params)
-    id = Time.now.strftime('%Y%m%d%H%M%S%L')
-    SQL.new.insert(id, params)
-  end
-
-  def update(params)
-    SQL.new.update(params[:id], params)
-  end
-
-  def destroy(id)
-    SQL.new.delete(id)
+  
+    def find(id)
+      memo = SQL.new.select(id)[0]
+      Memo.new(memo['id'], memo['title'], memo['content'])
+    end
+  
+    def add(params)
+      id = Time.now.strftime('%Y%m%d%H%M%S%L')
+      SQL.new.insert(id, params)
+    end
+  
+    def update(params)
+      SQL.new.update(params[:id], params)
+    end
+  
+    def destroy(id)
+      SQL.new.delete(id)
+    end
   end
 end

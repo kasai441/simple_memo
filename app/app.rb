@@ -9,12 +9,12 @@ require_relative './helpers/helpers'
 enable :method_override
 
 get '/' do
-  @memos = Memo.new.all
+  @memos = Memo.all
   erb :index
 end
 
 get '/show/:id' do
-  @memo = Memo.new.find(params[:id])
+  @memo = Memo.find(params[:id])
   if @memo
     erb :show
   else
@@ -27,12 +27,12 @@ get '/new' do
 end
 
 post '/new' do
-  Memo.new.add(escape_params(params))
+  Memo.add(escape_params(params))
   redirect '/'
 end
 
 get '/edit/:id' do
-  @memo = Memo.new.find(params[:id])
+  @memo = Memo.find(params[:id])
   if @memo
     erb :edit
   else
@@ -41,12 +41,12 @@ get '/edit/:id' do
 end
 
 patch '/edit/:id' do
-  Memo.new.update(escape_params(params))
+  Memo.update(escape_params(params))
   redirect "/show/#{params[:id]}"
 end
 
 delete '/delete/:id' do
-  Memo.new.destroy(params[:id])
+  Memo.destroy(params[:id])
   redirect '/'
 end
 
