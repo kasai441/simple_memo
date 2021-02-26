@@ -7,7 +7,7 @@ class SQL
   FILE_NAME = 'database.yml'
   SETTING_FILE = "#{File.dirname(__FILE__)}/#{FILE_NAME}"
   def initialize
-    conn_settings = open(SETTING_FILE, 'r') { |f| YAML.load(f) }
+    conn_settings = File.open(SETTING_FILE, 'r') { |f| YAML.safe_load(f) }
     @conn = PG::Connection.new(conn_settings['default'])
     create_table = 'CREATE TABLE IF NOT EXISTS memos (
       id varchar(17),
@@ -21,7 +21,7 @@ class SQL
     stmt = 'SELECT * FROM memos'
     @conn.exec(stmt)
   end
-  
+
   def select(id)
     stmt = 'SELECT * FROM memos WHERE id = $1'
     @conn.prepare('select', stmt)
@@ -39,7 +39,7 @@ class SQL
     @conn.prepare('update', stmt)
     @conn.exec_prepared('update', [id, params[:title], params[:content]])
   end
-  
+
   def delete(id)
     stmt = 'DELETE FROM memos WHERE id = $1'
     @conn.prepare('delete', stmt)

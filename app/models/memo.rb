@@ -17,21 +17,21 @@ class Memo
         Memo.new(memo['id'], memo['title'], memo['content'])
       end
     end
-  
+
     def find(id)
       memo = SQL.new.select(id)[0]
       Memo.new(memo['id'], memo['title'], memo['content'])
     end
-  
+
     def add(params)
       id = Time.now.to_i.to_s
       SQL.new.insert(id, params)
     end
-  
+
     def update(params)
       SQL.new.update(params[:id], params)
     end
-  
+
     def destroy(id)
       SQL.new.delete(id)
     end
