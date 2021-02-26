@@ -5,7 +5,7 @@ require 'yaml'
 
 class SQL
   def initialize
-    settings_file = 'database.yml'
+    settings_file = 'database_local.yml'
     conn_settings = open(settings_file, 'r') { |f| YAML.load(f) }
     @conn = PG::Connection.new(conn_settings['default'])
     create_table = 'CREATE TABLE IF NOT EXISTS memos (
