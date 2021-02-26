@@ -4,9 +4,10 @@ require 'pg'
 require 'yaml'
 
 class SQL
+  FILE_NAME = 'database_local.yml'
+  SETTING_FILE = "#{File.dirname(__FILE__)}/#{FILE_NAME}"
   def initialize
-    settings_file = 'database_local.yml'
-    conn_settings = open(settings_file, 'r') { |f| YAML.load(f) }
+    conn_settings = open(SETTING_FILE, 'r') { |f| YAML.load(f) }
     @conn = PG::Connection.new(conn_settings['default'])
     create_table = 'CREATE TABLE IF NOT EXISTS memos (
       id varchar(17),
