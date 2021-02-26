@@ -4,7 +4,7 @@ require 'pg'
 require 'yaml'
 
 class SQL
-  FILE_NAME = 'database_local.yml'
+  FILE_NAME = 'database.yml'
   SETTING_FILE = "#{File.dirname(__FILE__)}/#{FILE_NAME}"
   def initialize
     conn_settings = open(SETTING_FILE, 'r') { |f| YAML.load(f) }
