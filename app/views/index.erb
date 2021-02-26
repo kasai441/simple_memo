@@ -1,0 +1,6 @@
+<div class="memos">
+<ul class="memos__items">
+<% @memos.each do |memo| %>
+  <li class="memos__item" name="<%= memo.id %>"><a class="memos__link" href="/show/<%= memo.id %>"><%= memo.title %></a></li>
+<% end %>
+</ul>

@@ -1,0 +1,415 @@
+/*
+////////////////////////////////////////
+reset.css を読み込んで全てのスタイルをなくす
+////////////////////////////////////////
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+////////////////////////////////////////
+reset.css では足りない初期化を追加
+////////////////////////////////////////
+*/
+
+/* 全てに box-sizing: border-box; を適用 */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* 画像に関する初期設定 */
+img {
+  /* 大きい画像がはみ出さないように */
+  max-width: 100%;
+  /* 画像周りの無駄なスペースができないように */
+  vertical-align: bottom;
+}
+
+/*
+////////////////////////////////////////
+初期設定
+////////////////////////////////////////
+*/
+
+/*
+////////////////////////////////////////
+reset.css を読み込んで全てのスタイルをなくす
+////////////////////////////////////////
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+////////////////////////////////////////
+reset.css では足りない初期化を追加
+////////////////////////////////////////
+*/
+
+/* 全てに box-sizing: border-box; を適用 */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* 画像に関する初期設定 */
+img {
+  /* 大きい画像がはみ出さないように */
+  max-width: 100%;
+  /* 画像周りの無駄なスペースができないように */
+  vertical-align: bottom;
+}
+
+/*
+////////////////////////////////////////
+simple_memoアプリ用設定
+////////////////////////////////////////
+*/
+
+html {
+  font-family: arial, sans-serif;
+}
+
+body {
+  color: #111;
+  background-color: #fffeff;
+}
+
+/* 全体を真ん中に配置 */
+.container {
+  max-width: 980px;
+  width: 92%;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fffeff;
+  box-shadow: rgba(0, 0, 0, .4) 0 0 0px;
+  /* floatを使った場合の対策 */
+  overflow: hidden; 
+}
+
+:root {
+  --base_padding_size: 16px;
+  --font_color: #121;
+  --bar_color: #8d8;
+  --select_color: #beb;
+  --bg_color: #edf7ed;
+}
+
+.header {
+  padding: 6em;
+  color: var(--font_color);
+  background-color: transparent;
+  font-size: 3px;
+  letter-spacing: 1.5em;
+  text-align: center;
+}
+
+.header__title {
+  transform:scaleX(1.6);
+}
+
+.menu-bar {
+  background-color: var(--bar_color);
+  font-size: 18px;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.menu-bar__link {
+  color: #111;
+  text-decoration: none;
+  padding: 1em 2em;
+}
+
+.menu-bar__link:hover {
+  color: #fff;
+}
+
+.menu-bar__items {
+  display: flex;
+}
+
+.menu-bar__item {
+  display: flex;
+  justify-content: space-around;
+  color: #111;
+}
+
+.body {
+  display: flex;
+}
+.main {
+  width: 100%;
+}
+
+.memos__items {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4em 0;
+  align-items: center;
+}
+
+.memos__item {
+  border-radius: 0.3em;
+  background-color: var(--bg_color);
+  font-size: 1.3em;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.memos__link {
+  display: inline-block;
+  width: 100%;
+  padding: 32px;
+  color: var(--font_color);
+  text-decoration: none;
+}
+
+.memos__link:hover {
+  border-radius: 0.3em;
+  background-color: var(--select_color);
+}
+
+.show__items {
+  padding: 0.4em 0;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.show__item {
+  width: 100%;
+  padding: var(--base_padding_size);
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.show__title {
+  font-size: 1.2em;
+  border-bottom: 1px solid var(--select_color);
+}
+
+.show__content {
+  min-height: 200px;
+  white-space: pre-wrap;
+}
+
+.show__actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.show__actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em 5em;
+}
+
+.show__edit,
+.show__delete {
+  font-size: 0.9em;
+  width: 300px;
+  border-radius: 0.3em;
+  text-align: center;
+  color: var(--font_color);
+  text-decoration: none;
+  margin: 0.5em;
+}
+
+.show__edit {
+  padding: 1em;
+  border-radius: 0.3em;
+  border: 1px solid var(--select_color);
+  text-align: center;
+  background-color: var(--select_color);
+  color: var(--font_color);
+  text-decoration: none;
+}
+
+.show__delete {
+  padding: 0.8em;
+  border: 1px solid #ddd;
+}
+
+.show__edit:hover {
+  background-color: #7d7;
+  color: #fff;
+  border-radius: 0.3em;
+}
+
+.show__delete:hover {
+  background-color: #666;
+  color: #fff;
+}
+
+.edit-form__items {
+  padding: 0.4em 0;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.edit-form__item {
+  padding: 0.3em;
+  display: flex;
+}
+
+.edit-form__label {
+  width: 12%;
+  padding: 1em 1.5em;
+  font-size: 0.9em;
+  text-align: right;
+  display: inline-block;
+}
+
+.edit-form__title,
+.edit-form__content {
+  padding: 0.3em;
+  background-color: var(--bg_color);
+  border-radius: 0.3em;
+  border: none;
+  vertical-align: top;
+  flex-grow: 1;
+}
+
+.edit-form__title {
+  font-size: 1em;
+}
+
+.edit-form__content {
+  min-height: 200px;
+}
+
+.edit-form__actions {
+  width: 88%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em 5em;
+}
+
+.edit-form__cancel,
+.edit-form__submit {
+  font-size: 0.9em;
+  width: 300px;
+  border-radius: 0.3em;
+  text-align: center;
+  color: var(--font_color);
+  text-decoration: none;
+  margin: 0.5em;
+}
+
+.edit-form__cancel {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  padding: 1em;
+}
+
+.edit-form__submit {
+  background-color: var(--select_color);
+  border: 1px solid var(--bg_color);
+  padding: 0.8em;
+}
+
+.edit-form__cancel:hover {
+  background-color: #ddd;
+}
+
+.edit-form__submit:hover {
+  background-color: var(--bar_color);
+  color: #fff;
+}

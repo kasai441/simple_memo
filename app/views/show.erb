@@ -1,0 +1,10 @@
+<form class="show__items" method="post" action="/delete/<%= @memo.id %>">
+  <input hidden name="_method" value="DELETE">
+  <input hidden name="id" value="<%= @memo.id %>">
+  <h2 class="show__item show__title"><%= @memo.title %></h2>
+  <p class="show__item show__content"><%= @memo.content %></p>
+  <div class="show__actions">
+    <a class="show__edit" name="<%= @memo.id %>" href="/edit/<%= @memo.id %>">編集</a>
+    <input class="show__delete" type="submit" value="削除">
+  </div>
+</form>

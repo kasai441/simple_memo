@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>シンプルメモ</title>
+</head>
+
+<body>
+<div class="container">
+  <header class="header">
+    <h1 class="header__title">シンプルなメモを書きましょう</h1>
+  </header>
+  <nav class="menu-bar">
+    <ol class="menu-bar__items">
+      <li class="menu-bar__item"><a href="/" class="menu-bar__link">ホーム</a></li>
+      <li class="menu-bar__item"><a href="/new" class="menu-bar__link">新規作成</a></li>
+    </ol>
+  </nav>
+  <div class="body">
+    <main class="main">
+      <%= yield %>
+    </main>
+  </div>
+</div>
+</body>
+
+</html>
