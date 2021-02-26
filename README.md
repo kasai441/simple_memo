@@ -24,7 +24,7 @@ bundle install --path vendor/bundle
   - 3-1. postgresqlがインストールされていない場合インストールをしてください。
   - 3-2. psqlにてアプリ用のデータベースを作成して下さい。
 ```bash
-createdb simple_memo -O user_name;
+$ createdb simple_memo -O user_name;
 ```
   - 3-3. psqlの任意のユーザ情報を``app/models/database.yml``に追記してください。
 ```yml
