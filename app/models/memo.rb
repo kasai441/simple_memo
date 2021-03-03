@@ -5,7 +5,7 @@ require_relative './db'
 class Memo
   attr_accessor :id, :title, :content
 
-  def initialize(id = '', title = '', content = '')
+  def initialize(id = 0, title = '', content = '')
     @id = id
     @title = title
     @content = content
@@ -24,8 +24,7 @@ class Memo
     end
 
     def add(params)
-      id = Time.now.to_i.to_s
-      SQL.new.insert(id, params)
+      SQL.new.insert(params)
     end
 
     def update(params)

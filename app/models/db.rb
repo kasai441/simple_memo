@@ -10,7 +10,7 @@ class SQL
     conn_settings = File.open(SETTING_FILE, 'r') { |f| YAML.safe_load(f) }
     @conn = PG::Connection.new(conn_settings['default'])
     create_table = 'CREATE TABLE IF NOT EXISTS memos (
-      id varchar(17),
+      id serial,
       title varchar(100),
       content varchar(3000)
     )'
@@ -28,10 +28,10 @@ class SQL
     @conn.exec_prepared('select', [id])
   end
 
-  def insert(id, params)
-    stmt = 'INSERT INTO memos (id, title, content) VALUES($1, $2, $3)'
+  def insert(params)
+    stmt = 'INSERT INTO memos (title, content) VALUES($1, $2)'
     @conn.prepare('insert', stmt)
-    @conn.exec_prepared('insert', [id, params[:title], params[:content]])
+    @conn.exec_prepared('insert', [params[:title], params[:content]])
   end
 
   def update(id, params)
