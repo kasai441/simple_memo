@@ -9,12 +9,6 @@ class SQL
   def initialize
     conn_settings = File.open(SETTING_FILE, 'r') { |f| YAML.safe_load(f) }
     @conn = PG::Connection.new(conn_settings['default'])
-    create_table = 'CREATE TABLE IF NOT EXISTS memos (
-      id serial,
-      title varchar(100),
-      content varchar(3000)
-    )'
-    @conn.exec(create_table)
   end
 
   def select_all
