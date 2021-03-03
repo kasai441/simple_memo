@@ -4,7 +4,7 @@ require 'pg'
 require 'yaml'
 
 class Memo
-  attr_accessor :id, :title, :content
+  attr_reader :id, :title, :content
 
   FILE_NAME = 'database.yml'
   SETTINGS_FILE = "#{File.dirname(__FILE__)}/#{FILE_NAME}"
