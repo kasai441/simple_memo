@@ -25,7 +25,7 @@ bundle install --path vendor/bundle
   - 3-2. psqlにてアプリ用のデータベースとテーブルを作成して下さい。
 ```bash
 # CREATE DATABASE simple_memo;
-# CREATE TABLE memos (id serial,title varchar(100),content varchar(3000));
+# CREATE TABLE memos (id serial PRIMARY KEY,title varchar(100),content varchar(3000));
 ```
   - 3-3. psqlの任意のユーザ情報を``app/models/database.yml``に追記してください。
 ```yml
