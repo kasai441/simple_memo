@@ -53,6 +53,6 @@ end
 private
 
 def escape_params(params)
-  [:title, :content].each { |e| params[e] = h(params[e]) }
+  %i[title content].each { |e| params[e] = h(params[e]) }
   params
 end
